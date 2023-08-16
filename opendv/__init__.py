@@ -1,1 +1,1 @@
-from . import person
+from . import analytics
