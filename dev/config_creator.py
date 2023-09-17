@@ -2,7 +2,7 @@ import os
 import json
 import argparse
 
-# analytics.person.face.detection
+# opendv.analytics.person.face.detection
 def create_analytics_person_face_detection(module):
     # create config path
     config_path = module.split('.')
@@ -35,7 +35,7 @@ def main():
     parser.add_argument('--module', type=str)
     args = parser.parse_args()
 
-    if args.module == 'analytics.person.face.detection':
+    if args.module == 'opendv.analytics.person.face.detection':
         create_analytics_person_face_detection(args.module)
 
 if __name__ == '__main__':
