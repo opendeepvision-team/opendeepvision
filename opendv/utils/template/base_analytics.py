@@ -32,6 +32,11 @@ class BaseAnalytics(ABC):
     
     @property
     @abstractmethod
+    def arxiv_url(self):
+        raise NotImplementedError
+    
+    @property
+    @abstractmethod
     def code_url(self):
         raise NotImplementedError
     

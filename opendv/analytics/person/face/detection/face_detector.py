@@ -61,6 +61,14 @@ class FaceDetector(BaseFaceDetector):
         self._detector.paper_url = value
     
     @property
+    def arxiv_url(self):
+        return self._detector.arxiv_url
+    
+    @arxiv_url.setter
+    def arxiv_url(self, value):
+        self._detector.arxiv_url = value
+    
+    @property
     def code_url(self):
         return self._detector.code_url
     
