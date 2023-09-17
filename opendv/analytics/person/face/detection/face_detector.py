@@ -109,19 +109,6 @@ def main():
     print(faces)
     print(len(faces))
 
-def create_config():
-    config = {
-        "priority": 1,
-        "name": "MTCNN", 
-        "description": "Joint face detection and alignment using multitask cascaded convolutional networks",
-        "alias": "mtcnn",
-        "paper_url": "https://arxiv.org/abs/1604.02878",
-        "code_url": "https://github.com/ipazc/mtcnn",
-        "bibtex": "https://arxiv.org/abs/1604.02878"
-    }
-    with open('config.json', 'w') as f:
-        json.dump(config, f)
-
 def get_config():
     with open('config.json', 'r') as f:
         params = json.load(f)
