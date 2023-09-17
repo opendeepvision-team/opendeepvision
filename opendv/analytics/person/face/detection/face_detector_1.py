@@ -31,7 +31,7 @@ class FaceDetector1(BaseFaceDetector):
         return faces
 
     def _get_config(self):
-        with open('utils/template/config.json', 'r') as f:
+        with open('./config.json', 'r') as f:
             config = json.load(f)
             algorithms = config["algorithms"]
             for id,algorithm in algorithms.items():
@@ -152,38 +152,5 @@ def main():
     print(faces)
     print(len(faces))
 
-def create_config():
-    config = {
-        "default": "1",
-        "algorithms": {
-            "1": {
-                "name": "MTCNN", 
-                "description": "Joint face detection and alignment using multitask cascaded convolutional networks",
-                "alias": "mtcnn",
-                "paper_url": "https://arxiv.org/abs/1604.02878",
-                "code_url": "https://github.com/ipazc/mtcnn",
-                "bibtex": "https://arxiv.org/abs/1604.02878", 
-                "class_name": "FaceDetector1"
-            }
-        }
-    }
-    with open('config.json', 'w') as f:
-        json.dump(config, f)
-
-def get_config():
-    with open('utils/template/config.json', 'r') as f:
-        params = json.load(f)
-        print(type(params['default']))
-        print(type(params['algorithms']["1"]["class_name"]))
-        id = params['default']
-        algorithm = params["algorithms"][id]
-        fd = eval(algorithm["class_name"])(min_face_size=40)
-        #fd = globals()[algorithm["class_name"]](min_face_size=40)
-        print(fd.min_face_size)
-        fd2 = FaceDetector1()
-        print(fd2.min_face_size)
-
 if __name__ == '__main__':
-    #main()
-    #create_config()
-    get_config()
+    main()
