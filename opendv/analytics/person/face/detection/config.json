@@ -1,0 +1,15 @@
+{
+	"default": "1",
+	"algorithms": {
+		"1": {
+			"name": "MTCNN",
+			"description": "Joint face detection and alignment using multitask cascaded convolutional networks",
+			"alias": "mtcnn",
+			"paper_url": "https://ieeexplore.ieee.org/document/7553523",
+			"arxiv_url": "https://arxiv.org/abs/1604.02878",
+			"code_url": "https://github.com/ipazc/mtcnn",
+			"bibtex": "@article{Zhang_2016, doi = {10.1109/lsp.2016.2603342}, url = {https://doi.org/10.1109%2Flsp.2016.2603342}, year = 2016, month = {oct}, publisher = {Institute of Electrical and Electronics Engineers ({IEEE})}, volume = {23}, number = {10}, pages = {1499--1503}, author = {Kaipeng Zhang and Zhanpeng Zhang and Zhifeng Li and Yu Qiao}, title = {Joint Face Detection and Alignment Using Multitask Cascaded Convolutional Networks}, journal = {{IEEE} Signal Processing Letters} }",
+			"class_name": "FaceDetector1"
+		}
+	}
+}
