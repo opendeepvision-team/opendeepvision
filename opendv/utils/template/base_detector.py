@@ -5,7 +5,7 @@ Abstract components for BaseDetector class.
 
 from abc import abstractmethod
 
-from base_analytics import BaseAnalytics
+from opendv.utils.template import BaseAnalytics
 
 class BaseDetector(BaseAnalytics):
     """

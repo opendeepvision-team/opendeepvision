@@ -1,14 +1,14 @@
+import os
 import json
 from mtcnn import MTCNN
 from skimage.io import imread
 
-from utils.template import BaseFaceDetector
+from opendv.utils.template import BaseFaceDetector
 
 class FaceDetector1(BaseFaceDetector):
 
     def __init__(self, **kwargs):
         config = self._get_config()
-        print(config)
         params = {}
         for k,v in kwargs.items():
             params[k] = v
@@ -31,7 +31,8 @@ class FaceDetector1(BaseFaceDetector):
         return faces
 
     def _get_config(self):
-        with open('./config.json', 'r') as f:
+        module_path = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(module_path, 'config.json'), 'r') as f:
             config = json.load(f)
             algorithms = config["algorithms"]
             for id,algorithm in algorithms.items():

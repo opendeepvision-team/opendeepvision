@@ -1,8 +1,9 @@
+import os
 import json
 from skimage.io import imread
 
-from utils.template import BaseFaceDetector
-from face_detector_1 import FaceDetector1
+from opendv.utils.template import BaseFaceDetector
+from opendv.analytics.person.face.detection import FaceDetector1
 
 class FaceDetector(BaseFaceDetector):
 
@@ -21,7 +22,8 @@ class FaceDetector(BaseFaceDetector):
         return faces
 
     def _get_config(self):
-        with open('utils/template/config.json', 'r') as f:
+        module_path = os.path.dirname(os.path.abspath(__file__))
+        with open(os.path.join(module_path, 'config.json'), 'r') as f:
             params = json.load(f)
             return params
     
