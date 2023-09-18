@@ -4,6 +4,7 @@ from skimage.io import imread
 
 from opendv.utils.template import BaseFaceDetector
 from opendv.analytics.person.face.detection import FaceDetector1
+from opendv.analytics.person.face.detection import FaceDetector2
 
 class FaceDetector(BaseFaceDetector):
 
@@ -103,7 +104,7 @@ class FaceDetector(BaseFaceDetector):
         return self._detector.steps_threshold
 
 def main():
-    fd = FaceDetector1()
+    fd = FaceDetector()
     fd.priority = 2
     fd.min_face_size = 30
     print(fd)

@@ -1,11 +1,11 @@
 import os
 import json
-from mtcnn import MTCNN
+from retinaface import RetinaFace
 from skimage.io import imread
 
 from opendv.utils.template import BaseFaceDetector
 
-class FaceDetector1(BaseFaceDetector):
+class FaceDetector2(BaseFaceDetector):
 
     def __init__(self, **kwargs):
         config = self._get_config()
@@ -19,15 +19,9 @@ class FaceDetector1(BaseFaceDetector):
         self._arxiv_url = config['arxiv_url']
         self._code_url = config['code_url']
         self._bibtex = config['bibtex']
-        self._min_face_size = params.get('min_face_size', 20)
-        self._scale_factor = params.get('scale_factor', 0.709)
-        self._steps_threshold = params.get('steps_threshold', None)
-        self._detector = MTCNN(min_face_size=self._min_face_size, 
-                               scale_factor=self._steps_threshold, 
-                               steps_threshold=self._steps_threshold)
     
     def detect(self, image):
-        faces = self._detector.detect_faces(image)
+        faces = RetinaFace.detect_faces(image)
         return faces
 
     def _get_config(self):
@@ -41,9 +35,6 @@ class FaceDetector1(BaseFaceDetector):
     
     def __str__(self):
         return '\n'.join([
-            str(self._min_face_size), 
-            str(self._scale_factor), 
-            str(self._steps_threshold), 
             self._name, 
             self._description, 
             self._alias, 
@@ -124,31 +115,16 @@ class FaceDetector1(BaseFaceDetector):
     
     @property
     def min_face_size(self):
-        return self._min_face_size
+        raise NotImplementedError
     
     @min_face_size.setter
     def min_face_size(self, value):
-        if not isinstance(value, int):
-            raise TypeError
-        self._min_face_size = value
-        self._detector.min_face_size = value
+        raise NotImplementedError
     
     @property
     def scale_factor(self):
-        return self._scale_factor
+        raise NotImplementedError
     
     @property
     def steps_threshold(self):
-        return self._steps_threshold
-
-def main():
-    fd = FaceDetector1()
-    fd.priority = 2
-    fd.min_face_size = 30
-    print(fd)
-    faces = fd.detect('utils/template/faces.jpg')
-    print(faces)
-    print(len(faces))
-
-if __name__ == '__main__':
-    main()
+        raise NotImplementedError
