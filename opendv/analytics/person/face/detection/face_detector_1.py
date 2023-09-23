@@ -118,7 +118,7 @@ class FaceDetector1(BaseFaceDetector):
     
     @bibtex.setter
     def bibtex(self, value):
-        if not isinstance(value, str):
+        if not isinstance(value, list):
             raise TypeError
         self._bibtex = value
     
