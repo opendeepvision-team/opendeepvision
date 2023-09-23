@@ -19,6 +19,7 @@ class FaceDetector1(BaseFaceDetector):
         self._arxiv_url = algorithm['arxiv_url']
         self._code_url = algorithm['code_url']
         self._bibtex = algorithm['bibtex']
+        self._class_name = algorithm['class_name']
         self._min_face_size = params.get('min_face_size', 20)
         self._scale_factor = params.get('scale_factor', 0.709)
         self._steps_threshold = params.get('steps_threshold', None)
@@ -79,6 +80,10 @@ class FaceDetector1(BaseFaceDetector):
     @property
     def bibtex(self):
         return self._bibtex
+    
+    @property
+    def class_name(self):
+        return self._class_name
     
     @property
     def min_face_size(self):

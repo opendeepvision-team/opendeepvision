@@ -44,3 +44,8 @@ class BaseAnalytics(ABC):
     @abstractmethod
     def bibtex(self):
         raise NotImplementedError
+    
+    @property
+    @abstractmethod
+    def class_name(self):
+        raise NotImplementedError

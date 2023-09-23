@@ -19,6 +19,7 @@ class FaceDetector2(BaseFaceDetector):
         self._arxiv_url = algorithm['arxiv_url']
         self._code_url = algorithm['code_url']
         self._bibtex = algorithm['bibtex']
+        self._class_name = algorithm['class_name']
     
     def detect(self, image):
         faces = RetinaFace.detect_faces(image)
@@ -70,6 +71,10 @@ class FaceDetector2(BaseFaceDetector):
     @property
     def bibtex(self):
         return self._bibtex
+    
+    @property
+    def class_name(self):
+        return self._class_name
     
     @property
     def min_face_size(self):

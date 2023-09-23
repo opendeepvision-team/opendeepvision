@@ -67,6 +67,10 @@ class FaceDetector(BaseFaceDetector):
         return self._detector.bibtex
     
     @property
+    def class_name(self):
+        return self._detector.class_name
+    
+    @property
     def min_face_size(self):
         return self._detector.min_face_size
     
