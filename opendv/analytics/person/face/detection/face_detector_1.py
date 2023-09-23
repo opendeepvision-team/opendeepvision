@@ -8,17 +8,17 @@ from opendv.utils.template import BaseFaceDetector
 class FaceDetector1(BaseFaceDetector):
 
     def __init__(self, **kwargs):
-        config = self._get_config()
+        algorithm = self._get_algorithm()
         params = {}
         for k,v in kwargs.items():
             params[k] = v
-        self._name = config['name']
-        self._description = config['description']
-        self._alias = config['alias']
-        self._paper_url = config['paper_url']
-        self._arxiv_url = config['arxiv_url']
-        self._code_url = config['code_url']
-        self._bibtex = config['bibtex']
+        self._name = algorithm['name']
+        self._description = algorithm['description']
+        self._alias = algorithm['alias']
+        self._paper_url = algorithm['paper_url']
+        self._arxiv_url = algorithm['arxiv_url']
+        self._code_url = algorithm['code_url']
+        self._bibtex = algorithm['bibtex']
         self._min_face_size = params.get('min_face_size', 20)
         self._scale_factor = params.get('scale_factor', 0.709)
         self._steps_threshold = params.get('steps_threshold', None)
@@ -30,7 +30,7 @@ class FaceDetector1(BaseFaceDetector):
         faces = self._detector.detect_faces(image)
         return faces
 
-    def _get_config(self):
+    def _get_algorithm(self):
         module_path = os.path.dirname(os.path.abspath(__file__))
         with open(os.path.join(module_path, 'config.json'), 'r') as f:
             config = json.load(f)

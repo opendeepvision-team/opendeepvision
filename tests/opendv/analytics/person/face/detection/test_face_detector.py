@@ -12,7 +12,7 @@ class TestFaceDetector(unittest.TestCase):
         self.assertEqual(face_detector.scale_factor, 0.709)
     
     def test_algorithm2_get_property(self):
-        face_detector = FaceDetector(algorithm=2)
+        face_detector = FaceDetector(id=2)
         self.assertEqual(face_detector.name, 'RetinaFace')
         self.assertEqual(face_detector.alias, 'retinaface')
 

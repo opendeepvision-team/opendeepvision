@@ -7,26 +7,33 @@ from opendv.analytics.person.face.detection import FaceDetector1
 from opendv.analytics.person.face.detection import FaceDetector2
 
 class FaceDetector(BaseFaceDetector):
-
-    def __init__(self, algorithm=None, **kwargs):
-        config = self._get_config()
-        if algorithm is None:
-            id = config['default']
-        else:
-            id = str(algorithm)
-        algorithm_class_name = config['algorithms'][id]['class_name']
+    
+    def __init__(self, id=None, alias=None, **kwargs):
+        algorithm_class_name = self._get_algorithm_class_name(id, alias)
         self._detector = eval(algorithm_class_name)(**kwargs)
     
     def detect(self, file_path):
         image = imread(file_path)
         faces = self._detector.detect(image)
         return faces
-
-    def _get_config(self):
+    
+    def _get_algorithm_class_name(self, id=None, alias=None):
         module_path = os.path.dirname(os.path.abspath(__file__))
         with open(os.path.join(module_path, 'config.json'), 'r') as f:
-            params = json.load(f)
-            return params
+            config = json.load(f)
+        if id is None and alias is None:
+            _id = config['default']
+            algorithm_class_name = config['algorithms'][_id]['class_name']
+        else:
+            algorithms = config["algorithms"]
+            if id is None:
+                for _,algorithm in algorithms.items():
+                    if algorithm["alias"] == alias:
+                        algorithm_class_name = algorithm['class_name']
+            else:
+                _id = str(id)
+                algorithm_class_name = algorithms[_id]['class_name']
+        return algorithm_class_name
     
     def __str__(self):
         return self._detector.__str__
