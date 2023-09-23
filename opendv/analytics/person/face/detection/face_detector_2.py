@@ -64,16 +64,6 @@ class FaceDetector2(BaseFaceDetector):
         self._description = value
     
     @property
-    def alias(self):
-        return self._alias
-    
-    @alias.setter
-    def alias(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._alias = value
-    
-    @property
     def paper_url(self):
         return self._paper_url
     
@@ -128,3 +118,7 @@ class FaceDetector2(BaseFaceDetector):
     @property
     def steps_threshold(self):
         raise NotImplementedError
+    
+    @property
+    def alias(self):
+        return self._alias

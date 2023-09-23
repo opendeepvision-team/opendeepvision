@@ -55,14 +55,6 @@ class FaceDetector(BaseFaceDetector):
         self._detector.description = value
     
     @property
-    def alias(self):
-        return self._detector.alias
-    
-    @alias.setter
-    def alias(self, value):
-        self._detector.alias = value
-    
-    @property
     def paper_url(self):
         return self._detector.paper_url
     
@@ -109,6 +101,10 @@ class FaceDetector(BaseFaceDetector):
     @property
     def steps_threshold(self):
         return self._detector.steps_threshold
+    
+    @property
+    def alias(self):
+        return self._detector.alias
 
 def main():
     fd = FaceDetector()
