@@ -47,61 +47,29 @@ class FaceDetector2(BaseFaceDetector):
     def name(self):
         return self._name
     
-    @name.setter
-    def name(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._name = value
-    
     @property
     def description(self):
         return self._description
     
-    @description.setter
-    def description(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._description = value
+    @property
+    def alias(self):
+        return self._alias
     
     @property
     def paper_url(self):
         return self._paper_url
     
-    @paper_url.setter
-    def paper_url(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._paper_url = value
-    
     @property
     def arxiv_url(self):
         return self._arxiv_url
-    
-    @arxiv_url.setter
-    def arxiv_url(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._arxiv_url = value
     
     @property
     def code_url(self):
         return self._code_url
     
-    @code_url.setter
-    def code_url(self, value):
-        if not isinstance(value, str):
-            raise TypeError
-        self._code_url = value
-    
     @property
     def bibtex(self):
         return self._bibtex
-    
-    @bibtex.setter
-    def bibtex(self, value):
-        if not isinstance(value, list):
-            raise TypeError
-        self._bibtex = value
     
     @property
     def min_face_size(self):
@@ -118,7 +86,3 @@ class FaceDetector2(BaseFaceDetector):
     @property
     def steps_threshold(self):
         raise NotImplementedError
-    
-    @property
-    def alias(self):
-        return self._alias

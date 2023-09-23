@@ -42,49 +42,29 @@ class FaceDetector(BaseFaceDetector):
     def name(self):
         return self._detector.name
     
-    @name.setter
-    def name(self, value):
-        self._detector.name = value
-    
     @property
     def description(self):
         return self._detector.description
     
-    @description.setter
-    def description(self, value):
-        self._detector.description = value
+    @property
+    def alias(self):
+        return self._detector.alias
     
     @property
     def paper_url(self):
         return self._detector.paper_url
     
-    @paper_url.setter
-    def paper_url(self, value):
-        self._detector.paper_url = value
-    
     @property
     def arxiv_url(self):
         return self._detector.arxiv_url
-    
-    @arxiv_url.setter
-    def arxiv_url(self, value):
-        self._detector.arxiv_url = value
     
     @property
     def code_url(self):
         return self._detector.code_url
     
-    @code_url.setter
-    def code_url(self, value):
-        self._detector.code_url = value
-    
     @property
     def bibtex(self):
         return self._detector.bibtex
-    
-    @bibtex.setter
-    def bibtex(self, value):
-        self._detector.bibtex = value
     
     @property
     def min_face_size(self):
@@ -101,10 +81,6 @@ class FaceDetector(BaseFaceDetector):
     @property
     def steps_threshold(self):
         return self._detector.steps_threshold
-    
-    @property
-    def alias(self):
-        return self._detector.alias
 
 def main():
     fd = FaceDetector()
