@@ -27,7 +27,22 @@ class TestFaceDetector1(unittest.TestCase):
         self.assertEqual(face_detector.min_face_size, 20)
         self.assertEqual(face_detector.scale_factor, 0.709)
         self.assertIsNone(face_detector.steps_threshold)
-        
+    
+    def test_set_property(self):
+        face_detector = FaceDetector1()
+        face_detector.min_face_size = 40
+        self.assertEqual(face_detector.min_face_size, 40)
+    
+    def test_create_instance(self):
+        min_face_size = 40
+        scale_factor = 0.8
+        steps_threshold = [0.6, 0.7, 0.7]
+        face_detector = FaceDetector1(min_face_size=min_face_size,
+                                      scale_factor=scale_factor,
+                                      steps_threshold=steps_threshold)
+        self.assertEqual(face_detector.min_face_size, min_face_size)
+        self.assertEqual(face_detector.scale_factor, scale_factor)
+        self.assertListEqual(face_detector.steps_threshold, steps_threshold)
 
 if __name__ == '__main__':
     unittest.main()

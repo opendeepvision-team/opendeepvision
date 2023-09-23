@@ -24,7 +24,7 @@ class FaceDetector1(BaseFaceDetector):
         self._scale_factor = params.get('scale_factor', 0.709)
         self._steps_threshold = params.get('steps_threshold', None)
         self._detector = MTCNN(min_face_size=self._min_face_size, 
-                               scale_factor=self._steps_threshold, 
+                               scale_factor=self._scale_factor, 
                                steps_threshold=self._steps_threshold)
     
     def detect(self, image):
