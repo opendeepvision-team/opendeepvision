@@ -6,7 +6,9 @@ import argparse
 def create_analytics_person_face_detection(module):
     # create config path
     config_path = module.split('.')
-    config_path.insert(0, '..')
+    lib_path = os.path.dirname(os.path.abspath(__file__))
+    lib_path = os.path.join(lib_path, '..')
+    config_path.insert(0, lib_path)
     config_path.append('config.json')
     config_path = os.sep.join(config_path)
     # create config content
