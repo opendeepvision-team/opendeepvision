@@ -5,7 +5,7 @@ Abstract components for BaseFaceDetector class.
 
 from abc import abstractmethod
 
-from opendv.utils.template import BaseDetector
+from opendv.utils.template.analytics import BaseDetector
 
 class BaseFaceDetector(BaseDetector):
     """

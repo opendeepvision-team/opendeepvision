@@ -2,7 +2,7 @@ import os
 import json
 from skimage.io import imread
 
-from opendv.utils.template import BaseFaceDetector
+from opendv.utils.template.analytics import BaseFaceDetector
 from opendv.analytics.person.face.detection import FaceDetector1
 from opendv.analytics.person.face.detection import FaceDetector2
 

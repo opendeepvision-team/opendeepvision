@@ -3,7 +3,7 @@ import json
 from mtcnn import MTCNN
 from skimage.io import imread
 
-from opendv.utils.template import BaseFaceDetector
+from opendv.utils.template.analytics import BaseFaceDetector
 
 class FaceDetector1(BaseFaceDetector):
 
