@@ -8,8 +8,8 @@ from opendv.analytics.person.face.detection import FaceDetector2
 
 class FaceDetector(BaseFaceDetector):
     
-    def __init__(self, id=None, alias=None, **kwargs):
-        algorithm_class_name = self._get_algorithm_class_name(id, alias)
+    def __init__(self, id=None, algorithm=None, **kwargs):
+        algorithm_class_name = self._get_algorithm_class_name(id, algorithm)
         self._detector = eval(algorithm_class_name)(**kwargs)
     
     def detect(self, file_path):

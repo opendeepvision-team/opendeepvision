@@ -38,7 +38,7 @@ class TestFaceDetector(unittest.TestCase):
         self.assertEqual(face_detector.scale_factor, 0.709)
         self.assertIsNone(face_detector.steps_threshold)
         # Test for FaceDetector1
-        face_detector = FaceDetector(alias='mtcnn')
+        face_detector = FaceDetector(algorithm='mtcnn')
         config = self.get_face_detector_config()
         id = '1'
         algorithm = config['algorithms'][id]
@@ -67,7 +67,7 @@ class TestFaceDetector(unittest.TestCase):
         self.assertListEqual(face_detector.bibtex, algorithm['bibtex'])
         self.assertEqual(face_detector.class_name, algorithm['class_name'])
         # Test for FaceDetector2
-        face_detector = FaceDetector(alias='retinaface')
+        face_detector = FaceDetector(algorithm='retinaface')
         config = self.get_face_detector_config()
         id = '2'
         algorithm = config['algorithms'][id]
@@ -90,7 +90,7 @@ class TestFaceDetector(unittest.TestCase):
         face_detector.min_face_size = 40
         self.assertEqual(face_detector.min_face_size, 40)
         # Test for FaceDetector1
-        face_detector = FaceDetector(alias='mtcnn')
+        face_detector = FaceDetector(algorithm='mtcnn')
         face_detector.min_face_size = 50
         self.assertEqual(face_detector.min_face_size, 50)
     
@@ -120,7 +120,7 @@ class TestFaceDetector(unittest.TestCase):
         min_face_size = 50
         scale_factor = 0.9
         steps_threshold = [0.6, 0.7, 0.7]
-        face_detector = FaceDetector(alias='mtcnn', 
+        face_detector = FaceDetector(algorithm='mtcnn', 
                                      min_face_size=min_face_size,
                                       scale_factor=scale_factor,
                                       steps_threshold=steps_threshold)
